@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router,Routes, Route } from "react-router-dom";
 
 import Editarticle from "./components/articles/Editarticle";
-import Insertarticle from "./components/articles/Insertarticle";
+
 import Listarticles from "./components/articles/Listarticles";
 import Viewarticle from "./components/articles/Viewarticle";
 
@@ -23,6 +23,8 @@ import Listscategories from "./components/scategories/Listscategories";
 import ViewScategorie from "./components/scategories/ViewScategorie";
 
 import Menu from "./components/Menu";
+import Listarticlescard from './components/client/Listarticlescard';
+import Insertarticle from './components/articles/Insertarticle';
 
 
 
@@ -37,6 +39,7 @@ function App() {
 <Router>
 <Menu/>
 <Routes>
+<Route path="/" exact element={<Listarticlescard/>}/>
 <Route path="/articles" exact element={<Listarticles/>}/>
 <Route path="/articles/add" element={<Insertarticle/>}/>
 <Route path="/article/edit/:id" element={<Editarticle/>}/>
