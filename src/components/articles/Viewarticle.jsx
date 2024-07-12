@@ -1,11 +1,30 @@
-import React from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import Cardarticle from "./Cardarticle";
 
 const Viewarticle = () => {
-  return (
-    <div>
-      
-    </div>
-  )
+const [article, setArticle] = useState({
+reference: "",
+designation: "",
+imageart: "",
+prix:"",
+qtestock:0
+});
+const { id } = useParams();
+useEffect(() => {
+loadArticle();
+}, []);
+const loadArticle = async () => {
+const result = await
+axios.get(`https://ecommercebackend-rose.vercel.app/api/articles/${id}`);
+setArticle(result.data);
+};
+return (
+<div>
+    
+<Cardarticle article={article}/>
+</div>
+)
 }
-
 export default Viewarticle

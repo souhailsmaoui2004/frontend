@@ -18,18 +18,22 @@ console.log(res.data)
 setArticle(res.data);
 };
 const handleDelete = async (id) => {
+    // const handleDelete =  (id) => {
    try {
     if(window.confirm("confirmer la suppression"))
         {
-            await axios.delete(`https://ecommercebackend-rose.vercel.app/api/articles/${id}`)
-            .then(res=>loadArticles())
-
+             await axios.delete(`https://ecommercebackend-rose.vercel.app/api/articles/${id}`)
+            // .then(res=>loadArticles())
+            // axios.delete(`https://ecommercebackend-rose.vercel.app/api/articles/${id}`)
+            setArticle(articles.filter(art=>art._id !=id))
         }
      
    
     
    } catch (error) {
    console.log(error)
+   alert('Connexion impossible au serveur')
+   
 }
 }
 
